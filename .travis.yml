@@ -15,7 +15,7 @@ deploy:
   env: "Kaboodockerreact-env"
   bucket_name: "elasticbeanstalk-us-east-1-135197473470"
   bucket_path: "kaboo-docker-react"
-  on: 
-    branch: master
+  on:
+    branch: main
     access_key_id: $AWS_ACCESS_KEY
     secret_access_key: $AWS_SECRET_KEY
