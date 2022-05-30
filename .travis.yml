@@ -4,5 +4,18 @@ services:
 
 before_install:
   - docker build -t kaboo/docker -f Dockerfile.dev .
+
 script:
   - docker run -e CI=true kaboo/docker npm run test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "us-east-1"
+  app: "kaboo-docker-react"
+  env: "Kaboodockerreact-env"
+  bucket_name: "elasticbeanstalk-us-east-1-135197473470"
+  bucket_path: "kaboo-docker-react"
+  on: 
+    branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
